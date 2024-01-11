@@ -11,16 +11,11 @@ public class SpiralConverter {
     private int tempMarker = 0;
 
 
-    public SpiralConverter(int[][] inputArray) {
-        rows = inputArray.length;
-        column = inputArray[0].length;
+    public SpiralConverter(int rows, int column) {
+        this.rows = rows;
+        this.column = column;
         sum = rows*column;
-
         this.spiralArray = new int[rows][column];
-        for (int i = 0; i < rows; i++) {
-            spiralArray[i]= Arrays.copyOf(inputArray[i],inputArray[i].length);
-        }
-
         runSpiralWrite();
     }
 
