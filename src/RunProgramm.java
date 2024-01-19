@@ -1,9 +1,9 @@
-import converter.ConvertersList;
-import converter.GenerateArray;
+import algoritmConvertArrayImpl.SpiralAlgorithms;
+import generatorspriralarray.GeneratorSpiralArray;
 
 public class RunProgramm {
     public static void main(String[] args) {
-        GenerateArray generateArray=new GenerateArray(10,5, ConvertersList.DEFAULT);
-        generateArray.printArray();
+        GeneratorSpiralArray generatorSpiralArray =new GeneratorSpiralArray(10,5, SpiralAlgorithms.DEFAULT);
+        generatorSpiralArray.printArray();
     }
 }

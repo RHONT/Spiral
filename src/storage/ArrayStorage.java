@@ -1,6 +1,8 @@
 package storage;
 
-public class ArrayStorage {
+import java.util.Arrays;
+
+public final class ArrayStorage {
     private final int rows;
     private final int column;
     private int sumElement;
@@ -26,7 +28,7 @@ public class ArrayStorage {
     }
 
     public int[][] getSpiralArray() {
-        return spiralArray;
+        return Arrays.copyOf(spiralArray,spiralArray.length);
     }
 
     public void reduceByOne(){

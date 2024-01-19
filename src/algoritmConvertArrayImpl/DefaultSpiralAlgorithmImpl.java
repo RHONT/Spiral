@@ -1,24 +1,18 @@
 package algoritmConvertArrayImpl;
 
-import arrayInstrumentalInterfaces.SpiralCreateInterface;
-import storage.ArrayStorage;
+public final class DefaultSpiralAlgorithmImpl extends AlgorithmBase{
 
-import java.util.Optional;
-
-public class DefaultSpiralConverterImpl implements SpiralCreateInterface{
-    ArrayStorage storage;
     private int globIncr = 1;
     private int markerRows = 0;
     private int markerColumn = 0;
     private int tempMarker = 0;
 
-
-    public DefaultSpiralConverterImpl(int rows, int columns) {
-        storage =new ArrayStorage(rows,columns);
+    public DefaultSpiralAlgorithmImpl(int rows, int columns) {
+        super(rows,columns);
     }
 
     @Override
-    public Optional<int[][]> generateArray() {
+    public int[][] generateArray() {
 
         while (true) {
             if (!writeDigitToRightInSingleRow(storage.getSpiralArray())) break;
@@ -27,7 +21,7 @@ public class DefaultSpiralConverterImpl implements SpiralCreateInterface{
             if (!writeDigitToUpInSingleColumn(storage.getSpiralArray())) break;
         }
 
-        return Optional.of(storage.getSpiralArray());
+        return storage.getSpiralArray();
     }
 
     private boolean writeDigitToRightInSingleRow(int[][] arrS) {
@@ -85,7 +79,7 @@ public class DefaultSpiralConverterImpl implements SpiralCreateInterface{
     }
 
     @Override
-    public Optional<int[][]> getSpiralArray() {
-        return Optional.of(storage.getSpiralArray());
+    public int[][] getSpiralArray() {
+        return storage.getSpiralArray();
     }
 }
