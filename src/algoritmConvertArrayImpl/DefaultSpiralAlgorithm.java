@@ -2,7 +2,7 @@ package algoritmConvertArrayImpl;
 
 /**
  * Алгоритм закручивате спираль при помощи четырех методов<br>
- * вперед / вниз / влево / вправо<br>
+ * вправо / вниз / влево / вправо<br>
  * totalIncrement - возрастание значений после каждой записи на 1<br>
  * cursorRows - указатель текущего положения для строк<br>
  * cursorColumn - аналогично<br>
@@ -19,14 +19,13 @@ public final class DefaultSpiralAlgorithm extends AlgorithmBase{
         super(rows,columns);
     }
 
-    //todo ужасное решение
     @Override
     public int[][] generateArray() {
 
-        while (true) {
+        while (storage.getSumElement()>0) {
             if (!writeDigitToRightInSingleRow(storage.getSpiralArray())) break;
-            if (!writeDigitToLeftInSingleRow(storage.getSpiralArray())) break;
             if (!writeDigitToDownInSingleColumn(storage.getSpiralArray())) break;
+            if (!writeDigitToLeftInSingleRow(storage.getSpiralArray())) break;
             if (!writeDigitToUpInSingleColumn(storage.getSpiralArray())) break;
         }
 
@@ -60,7 +59,7 @@ public final class DefaultSpiralAlgorithm extends AlgorithmBase{
         return storage.getSumElement() >0;
     }
 
-    private boolean writeDigitToDownInSingleColumn(int[][] arrS) {
+    private boolean writeDigitToLeftInSingleRow(int[][] arrS) {
         for (int i = cursorColumn; i >= 0; i--) {
             if (arrS[cursorRows][i] == 0) {
                 arrS[cursorRows][i] = totalIncrement++;
@@ -74,7 +73,7 @@ public final class DefaultSpiralAlgorithm extends AlgorithmBase{
         return storage.getSumElement()  >0;
     }
 
-    private boolean writeDigitToLeftInSingleRow(int[][] arrS) {
+    private boolean writeDigitToDownInSingleColumn(int[][] arrS) {
         for (int j = cursorRows; j < storage.getRows(); j++) {
             if (arrS[j][cursorColumn] == 0) {
                 arrS[j][cursorColumn] = totalIncrement++;
