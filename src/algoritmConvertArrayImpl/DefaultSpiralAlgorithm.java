@@ -19,6 +19,7 @@ public final class DefaultSpiralAlgorithm extends AlgorithmBase{
         super(rows,columns);
     }
 
+    //todo ужасное решение
     @Override
     public int[][] generateArray() {
 
@@ -87,7 +88,7 @@ public final class DefaultSpiralAlgorithm extends AlgorithmBase{
     }
 
     @Override
-    public int[][] getSpiralArray() {
+    public int[][] getArray() {
         return storage.getSpiralArray();
     }
 }

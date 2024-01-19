@@ -11,7 +11,7 @@ import storage.ArrayStorage;
  *  7 6 5<br>
  *
  * generateArray - начать генерацию массива<br>
- * getSpiralArray - возвращает сгенерированный массив из {@link ArrayStorage}<br>
+ * getArray - возвращает сгенерированный массив из {@link ArrayStorage}<br>
  */
 public abstract class AlgorithmBase {
     protected ArrayStorage storage;
@@ -21,6 +21,6 @@ public abstract class AlgorithmBase {
     }
 
     public abstract int[][] generateArray();
-    public abstract int[][] getSpiralArray();
+    public abstract int[][] getArray();
 
 }
