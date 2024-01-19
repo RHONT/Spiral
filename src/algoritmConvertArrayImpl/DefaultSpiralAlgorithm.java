@@ -8,14 +8,14 @@ package algoritmConvertArrayImpl;
  * cursorColumn - аналогично<br>
  * cursorTemp - принимает значение индекса по завершению каждой итерации. Имеет влияние на cursorRows/cursorColumn<br>
  */
-public final class DefaultSpiralAlgorithmImpl extends AlgorithmBase{
+public final class DefaultSpiralAlgorithm extends AlgorithmBase{
 
     private int totalIncrement = 1;
     private int cursorRows = 0;
     private int cursorColumn = 0;
     private int cursorTemp = 0;
 
-    public DefaultSpiralAlgorithmImpl(int rows, int columns) {
+    public DefaultSpiralAlgorithm(int rows, int columns) {
         super(rows,columns);
     }
 
