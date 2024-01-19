@@ -1,94 +1,97 @@
-import java.util.Arrays;
+package algoritmConvertArrayImpl;
 
-public class SpiralConverter {
+import arrayInstrumentalInterfaces.SpiralCreateInterface;
+
+import java.util.Optional;
+
+public class DefaultSpiralConverterImpl implements SpiralCreateInterface{
     private final int rows;
     private final int column;
     private final int[][] spiralArray;
-    private int sum;
+    private int sumElement;
     private int globIncr = 1;
     private int markerRows = 0;
     private int markerColumn = 0;
     private int tempMarker = 0;
 
 
-    public SpiralConverter(int rows, int column) {
-        this.rows = rows;
-        this.column = column;
-        sum = rows*column;
-        this.spiralArray = new int[rows][column];
-        runSpiralWrite();
+    public DefaultSpiralConverterImpl(int rows, int columns) {
+        this.spiralArray=new int[rows][columns];
+        this.rows = spiralArray.length;
+        this.column = spiralArray[0].length;
+        this.sumElement = rows*column;
+
     }
 
-    private void runSpiralWrite(){
+    @Override
+    public Optional<int[][]> generateArray() {
+
         while (true) {
-            if (!forward(spiralArray)) break;
-            if (!down(spiralArray)) break;
-            if (!back(spiralArray)) break;
-            if (!up(spiralArray)) break;
+            if (!writeDigitToRightInSingleRow(spiralArray)) break;
+            if (!writeDigitToLeftInSingleRow(spiralArray)) break;
+            if (!writeDigitToDownInSingleColumn(spiralArray)) break;
+            if (!writeDigitToUpInSingleColumn(spiralArray)) break;
         }
+
+        return Optional.of(spiralArray);
     }
 
-    private boolean forward(int[][] arrS) {
+    private boolean writeDigitToRightInSingleRow(int[][] arrS) {
         for (int i = markerColumn; i < column; i++) {
             if (arrS[markerRows][i] == 0) {
                 arrS[markerRows][i] = globIncr++;
                 tempMarker = i;
-                sum--;
+                sumElement--;
             } else
                 break;
         }
         markerColumn = tempMarker;
         markerRows++;
-        return sum>0;
+        return sumElement >0;
     }
 
-    private boolean up(int[][] arrS) {
+    private boolean writeDigitToUpInSingleColumn(int[][] arrS) {
         for (int j = markerRows; j >= 0; j--) {
             if (arrS[j][markerColumn] == 0) {
                 arrS[j][markerColumn] = globIncr++;
                 tempMarker = j;
-                sum--;
+                sumElement--;
             } else break;
         }
         markerRows = tempMarker;
         markerColumn++;
-        return sum>0;
+        return sumElement >0;
     }
 
-    private boolean back(int[][] arrS) {
+    private boolean writeDigitToDownInSingleColumn(int[][] arrS) {
         for (int i = markerColumn; i >= 0; i--) {
             if (arrS[markerRows][i] == 0) {
                 arrS[markerRows][i] = globIncr++;
                 tempMarker = i;
-                sum--;
+                sumElement--;
             } else
                 break;
         }
         markerColumn = tempMarker;
         markerRows--;
-        return sum>0;
+        return sumElement >0;
     }
 
-    private boolean down(int[][] arrS) {
+    private boolean writeDigitToLeftInSingleRow(int[][] arrS) {
         for (int j = markerRows; j < rows; j++) {
             if (arrS[j][markerColumn] == 0) {
                 arrS[j][markerColumn] = globIncr++;
                 tempMarker = j;
-                sum--;
+                sumElement--;
             } else break;
         }
         markerRows = tempMarker;
         markerColumn--;
-        return sum>0;
+        return sumElement >0;
     }
 
-    public int[][] getSpiralArray() {
-        return spiralArray;
+    public Optional<int[][]> getSpiralArray() {
+        return Optional.of(spiralArray);
     }
 
-    public void printSpriralArray(){
-        for (var element: spiralArray) {
-            System.out.println(Arrays.toString(element));
-        }
-    }
 }
