@@ -18,10 +18,10 @@ public final class Generator implements AdditionalFunctionalityForGeneratorArray
     private final int columns;
     private AlgorithmGenerateArray algorithm;
 
-    public Generator(int rows, int columns, AlgorithmsList algorithms) {
+    public Generator(int rows, int columns, AlgorithmsList algorithmsType) {
         this.rows = rows;
         this.columns = columns;
-        changeAlgorithmGeneration(algorithms);
+        changeAlgorithmGeneration(algorithmsType);
     }
 
     public void changeAlgorithmGeneration(AlgorithmsList algorithm) {
