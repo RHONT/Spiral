@@ -1,9 +1,12 @@
-import algoritmConvertArrayImpl.AlgorithmsForArrays;
-import generatorarray.GeneratorArray;
+import algoritmConvertArrayImpl.AlgorithmsList;
+import generatorarray.Generator;
 
 public class RunProgram {
     public static void main(String[] args) {
-        GeneratorArray generatorArray =new GeneratorArray(10,5, AlgorithmsForArrays.DEFAULT_SPIRAL);
-        generatorArray.printArray();
+        Generator generator =new Generator(10,5, AlgorithmsList.SPIRAL);
+        generator.printArray();
+        System.out.println("=".repeat(20));
+        generator.changeAlgorithmGeneration(AlgorithmsList.CLASSIC_FILL);
+        generator.printArray();
     }
 }

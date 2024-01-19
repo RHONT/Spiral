@@ -10,13 +10,13 @@ public final class ArrayStorage {
     private final int rows;
     private final int column;
     private int sumElement;
-    private final int[][] spiralArray;
+    private final int[][] array;
 
     public ArrayStorage(int rows, int columns) {
         this.rows = rows;
         this.column = columns;
         this.sumElement = rows*column;
-        this.spiralArray=new int[rows][columns];
+        this.array =new int[rows][columns];
     }
 
     public int getRows() {
@@ -31,8 +31,8 @@ public final class ArrayStorage {
         return sumElement;
     }
 
-    public int[][] getSpiralArray() {
-        return Arrays.copyOf(spiralArray,spiralArray.length);
+    public int[][] getArray() {
+        return Arrays.copyOf(array, array.length);
     }
 
     public void reduceByOne(){
