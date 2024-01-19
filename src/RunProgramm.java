@@ -1,12 +1,9 @@
+import algoritmConvertArrayImpl.SpiralAlgorithms;
+import generatorspriralarray.GeneratorSpiralArray;
 
 public class RunProgramm {
     public static void main(String[] args) {
-        SpiralConverter sp = new SpiralConverter(5,5);
-        sp.printSpriralArray();
-
-        System.out.println("--".repeat(10));
-
-        sp = new SpiralConverter(10,5);
-        sp.printSpriralArray();
+        GeneratorSpiralArray generatorSpiralArray =new GeneratorSpiralArray(10,5, SpiralAlgorithms.DEFAULT);
+        generatorSpiralArray.printArray();
     }
 }
