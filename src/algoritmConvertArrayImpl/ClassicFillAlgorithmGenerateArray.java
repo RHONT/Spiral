@@ -6,8 +6,8 @@ package algoritmConvertArrayImpl;
  * 4 5 6
  * 7 8 9
  */
-public class ClassicFillAlgorithm extends BaseForAlgorithm {
-    public ClassicFillAlgorithm(int rows, int columns) {
+public class ClassicFillAlgorithmGenerateArray extends AlgorithmGenerateArray {
+    public ClassicFillAlgorithmGenerateArray(int rows, int columns) {
         super(rows, columns);
     }
 

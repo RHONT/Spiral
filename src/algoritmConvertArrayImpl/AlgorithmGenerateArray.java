@@ -7,10 +7,10 @@ import storage.ArrayStorage;
  * generateArray - начать генерацию массива<br>
  * getArray - возвращает сгенерированный массив из {@link ArrayStorage}<br>
  */
-public abstract class BaseForAlgorithm {
+public abstract class AlgorithmGenerateArray {
     protected ArrayStorage storage;
 
-    public BaseForAlgorithm(int rows, int columns) {
+    public AlgorithmGenerateArray(int rows, int columns) {
         this.storage = new ArrayStorage(rows,columns);
     }
 

@@ -1,14 +1,14 @@
 package generatorarray;
 
-import algoritmConvertArrayImpl.BaseForAlgorithm;
-import algoritmConvertArrayImpl.ClassicFillAlgorithm;
-import algoritmConvertArrayImpl.SpiralAlgorithm;
+import algoritmConvertArrayImpl.AlgorithmGenerateArray;
+import algoritmConvertArrayImpl.ClassicFillAlgorithmGenerateArray;
+import algoritmConvertArrayImpl.SpiralAlgorithmGenerateArray;
 import algoritmConvertArrayImpl.AlgorithmsList;
 import arrayinstrumentalinterfaces.AdditionalFunctionalityForGeneratorArrays;
 
 /**
  * Фабрика + Bridge. Где: <br>
- * Мост выступает - {@link BaseForAlgorithm}<br>
+ * Мост выступает - {@link AlgorithmGenerateArray}<br>
  * Фабрика: фабричный метод changeAlgorithmGeneration()<br>
  *
  * Конструктор принимает размерность массива и алгоритм из {@link AlgorithmsList}<br>
@@ -16,7 +16,7 @@ import arrayinstrumentalinterfaces.AdditionalFunctionalityForGeneratorArrays;
 public final class Generator implements AdditionalFunctionalityForGeneratorArrays {
     private final int rows;
     private final int columns;
-    private BaseForAlgorithm algorithm;
+    private AlgorithmGenerateArray algorithm;
 
     public Generator(int rows, int columns, AlgorithmsList algorithms) {
         this.rows = rows;
@@ -27,11 +27,11 @@ public final class Generator implements AdditionalFunctionalityForGeneratorArray
     public void changeAlgorithmGeneration(AlgorithmsList algorithm) {
         switch (algorithm) {
             case SPIRAL: {
-                this.algorithm = new SpiralAlgorithm(rows, columns);
+                this.algorithm = new SpiralAlgorithmGenerateArray(rows, columns);
                 break;
             }
             case  CLASSIC_FILL:{
-                this.algorithm = new ClassicFillAlgorithm(rows, columns);
+                this.algorithm = new ClassicFillAlgorithmGenerateArray(rows, columns);
                 break;
             }
             default:

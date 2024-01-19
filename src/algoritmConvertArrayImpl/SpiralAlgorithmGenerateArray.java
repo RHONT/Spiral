@@ -12,14 +12,14 @@ package algoritmConvertArrayImpl;
  * cursorColumn - аналогично<br>
  * cursorTemp - принимает значение индекса по завершению каждой итерации. Имеет влияние на cursorRows/cursorColumn<br>
  */
-public final class SpiralAlgorithm extends BaseForAlgorithm {
+public final class SpiralAlgorithmGenerateArray extends AlgorithmGenerateArray {
 
     private int totalIncrement = 1;
     private int cursorRows = 0;
     private int cursorColumn = 0;
     private int cursorTemp = 0;
 
-    public SpiralAlgorithm(int rows, int columns) {
+    public SpiralAlgorithmGenerateArray(int rows, int columns) {
         super(rows, columns);
     }
 
