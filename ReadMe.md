@@ -4,7 +4,7 @@
 Клиентский код:
 
 ```
-Generator generator =new Generator(10,5, AlgorithmsList.SPIRAL);
+Generator generator =new Generator(5, 5, AlgorithmsList.SPIRAL);
 generator.printArray();
 System.out.println("=".repeat(20));
 generator.changeAlgorithmGeneration(AlgorithmsList.CLASSIC_FILL);
