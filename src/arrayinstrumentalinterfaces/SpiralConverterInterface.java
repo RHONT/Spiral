@@ -2,6 +2,11 @@ package arrayinstrumentalinterfaces;
 
 import java.util.Arrays;
 
+/**
+ * Интерфейс для генератора массива<br>
+ * Отдает готовый результат<br>
+ * Умеет печатать в консоль результат 2d массива<br>
+ */
 public interface SpiralConverterInterface {
     int[][] getSpiralArray();
 

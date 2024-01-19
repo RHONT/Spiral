@@ -5,6 +5,9 @@ import algoritmConvertArrayImpl.DefaultSpiralAlgorithmImpl;
 import algoritmConvertArrayImpl.SpiralAlgorithms;
 import arrayinstrumentalinterfaces.SpiralConverterInterface;
 
+/**
+ * Конструктор принимает размерность массива и алгоритм из {@link SpiralAlgorithms}<br>
+ */
 public class GeneratorSpiralArray implements SpiralConverterInterface {
 
     private final AlgorithmBase converter;
@@ -17,7 +20,7 @@ public class GeneratorSpiralArray implements SpiralConverterInterface {
                 break;
             }
             default:
-                throw new RuntimeException("Список не поддерживает такой тип алгоритма");
+                throw new RuntimeException("Алгоритм не включен в switch-case класса " +this.getClass());
         }
     }
 

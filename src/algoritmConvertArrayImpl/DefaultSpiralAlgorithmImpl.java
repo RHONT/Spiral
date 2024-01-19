@@ -1,11 +1,19 @@
 package algoritmConvertArrayImpl;
 
+/**
+ * Алгоритм закручивате спираль при помощи четырех методов<br>
+ * вперед / вниз / влево / вправо<br>
+ * totalIncrement - возрастание значений после каждой записи на 1<br>
+ * cursorRows - указатель текущего положения для строк<br>
+ * cursorColumn - аналогично<br>
+ * cursorTemp - принимает значение индекса по завершению каждой итерации. Имеет влияние на cursorRows/cursorColumn<br>
+ */
 public final class DefaultSpiralAlgorithmImpl extends AlgorithmBase{
 
-    private int globIncr = 1;
-    private int markerRows = 0;
-    private int markerColumn = 0;
-    private int tempMarker = 0;
+    private int totalIncrement = 1;
+    private int cursorRows = 0;
+    private int cursorColumn = 0;
+    private int cursorTemp = 0;
 
     public DefaultSpiralAlgorithmImpl(int rows, int columns) {
         super(rows,columns);
@@ -25,56 +33,56 @@ public final class DefaultSpiralAlgorithmImpl extends AlgorithmBase{
     }
 
     private boolean writeDigitToRightInSingleRow(int[][] arrS) {
-        for (int i = markerColumn; i < storage.getColumn(); i++) {
-            if (arrS[markerRows][i] == 0) {
-                arrS[markerRows][i] = globIncr++;
-                tempMarker = i;
+        for (int i = cursorColumn; i < storage.getColumn(); i++) {
+            if (arrS[cursorRows][i] == 0) {
+                arrS[cursorRows][i] = totalIncrement++;
+                cursorTemp = i;
                 storage.reduceByOne();
             } else
                 break;
         }
-        markerColumn = tempMarker;
-        markerRows++;
+        cursorColumn = cursorTemp;
+        cursorRows++;
         return storage.getSumElement() >0;
     }
 
     private boolean writeDigitToUpInSingleColumn(int[][] arrS) {
-        for (int j = markerRows; j >= 0; j--) {
-            if (arrS[j][markerColumn] == 0) {
-                arrS[j][markerColumn] = globIncr++;
-                tempMarker = j;
+        for (int j = cursorRows; j >= 0; j--) {
+            if (arrS[j][cursorColumn] == 0) {
+                arrS[j][cursorColumn] = totalIncrement++;
+                cursorTemp = j;
                 storage.reduceByOne();
             } else break;
         }
-        markerRows = tempMarker;
-        markerColumn++;
+        cursorRows = cursorTemp;
+        cursorColumn++;
         return storage.getSumElement() >0;
     }
 
     private boolean writeDigitToDownInSingleColumn(int[][] arrS) {
-        for (int i = markerColumn; i >= 0; i--) {
-            if (arrS[markerRows][i] == 0) {
-                arrS[markerRows][i] = globIncr++;
-                tempMarker = i;
+        for (int i = cursorColumn; i >= 0; i--) {
+            if (arrS[cursorRows][i] == 0) {
+                arrS[cursorRows][i] = totalIncrement++;
+                cursorTemp = i;
                 storage.reduceByOne();
             } else
                 break;
         }
-        markerColumn = tempMarker;
-        markerRows--;
+        cursorColumn = cursorTemp;
+        cursorRows--;
         return storage.getSumElement()  >0;
     }
 
     private boolean writeDigitToLeftInSingleRow(int[][] arrS) {
-        for (int j = markerRows; j < storage.getRows(); j++) {
-            if (arrS[j][markerColumn] == 0) {
-                arrS[j][markerColumn] = globIncr++;
-                tempMarker = j;
+        for (int j = cursorRows; j < storage.getRows(); j++) {
+            if (arrS[j][cursorColumn] == 0) {
+                arrS[j][cursorColumn] = totalIncrement++;
+                cursorTemp = j;
                 storage.reduceByOne();
             } else break;
         }
-        markerRows = tempMarker;
-        markerColumn--;
+        cursorRows = cursorTemp;
+        cursorColumn--;
         return storage.getSumElement()  >0;
     }
 

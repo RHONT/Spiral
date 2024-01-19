@@ -2,6 +2,10 @@ package storage;
 
 import java.util.Arrays;
 
+/**
+ * Обертка для массива. <br>
+ * Хранит в себе базовую информацию о массиве: кол-во строк/колонок и сумму элементов
+ */
 public final class ArrayStorage {
     private final int rows;
     private final int column;

@@ -2,15 +2,16 @@ package algoritmConvertArrayImpl;
 
 import storage.ArrayStorage;
 /**
- * Класс для алгоритмов по закручиванию в спираль массивов
- * storage -> Обёртка для int[][]
- * Example:
- * generateArray(3,3) - >
- *  1 2 3
- *  8 9 4
- *  7 6 5
+ * Класс для алгоритмов по закручиванию в спираль массивов<br>
+ * storage -> Обёртка для int[][]<br>
+ * Example:<br>
+ * generateArray(3,3) - ><br>
+ *  1 2 3<br>
+ *  8 9 4<br>
+ *  7 6 5<br>
  *
- *
+ * generateArray - начать генерацию массива<br>
+ * getSpiralArray - возвращает сгенерированный массив из {@link ArrayStorage}<br>
  */
 public abstract class AlgorithmBase {
     protected ArrayStorage storage;
