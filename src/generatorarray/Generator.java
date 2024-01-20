@@ -10,7 +10,7 @@ import arrayinstrumentalinterfaces.AdditionalFunctionalityForGeneratorArrays;
  * Фабрика + Bridge. Где: <br>
  * Мост выступает - {@link AlgorithmGenerateArray}<br>
  * Фабрика: фабричный метод changeAlgorithmGeneration()<br>
- *
+ * <p>
  * Конструктор принимает размерность массива и алгоритм из {@link AlgorithmsList}<br>
  */
 public final class Generator implements AdditionalFunctionalityForGeneratorArrays {
@@ -21,32 +21,31 @@ public final class Generator implements AdditionalFunctionalityForGeneratorArray
     public Generator(int rows, int columns, AlgorithmsList algorithmsType) {
         this.rows = rows;
         this.columns = columns;
-        changeAlgorithmGeneration(algorithmsType);
+        chooseAnAlgorithm(algorithmsType);
     }
 
-    public void changeAlgorithmGeneration(AlgorithmsList algorithm) {
+    public void chooseAnAlgorithm(AlgorithmsList algorithm) {
         switch (algorithm) {
             case SPIRAL: {
                 this.algorithm = new SpiralAlgorithmGenerateArray(rows, columns);
                 break;
             }
-            case  CLASSIC_FILL:{
+            case CLASSIC_FILL: {
                 this.algorithm = new ClassicFillAlgorithmGenerateArray(rows, columns);
                 break;
             }
             default:
-                throw new RuntimeException("Алгоритм не включен в switch-case класса " +this.getClass());
+                throw new RuntimeException("Алгоритм не включен в switch-case класса " + this.getClass());
         }
-        this.algorithm.generateArray();
-    }
 
+    }
 
     public void printArray() {
-        this.printDefault(algorithm.getArray());
+        this.printDefault(getArray());
     }
 
-
     public int[][] getArray() {
+        this.algorithm.generateArray();
         return algorithm.getArray();
     }
 
