@@ -25,3 +25,6 @@ generator.printArray();
 Тесты:  
 ![img_2.png](img_2.png)
 
+При желании можно запустить подготовленный jar файл.
+![img_3.png](img_3.png)
+
