@@ -1,4 +1,4 @@
-package arrayinstrumentalinterfaces;
+package com.mymodules.arrayinstrumentalinterfaces;
 
 import java.util.Arrays;
 

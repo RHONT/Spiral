@@ -1,6 +1,6 @@
-package algoritmConvertArrayImpl;
+package com.mymodules.algoritmConvertArrayImpl;
 
-import storage.ArrayStorage;
+import com.mymodules.storage.ArrayStorage;
 /**
  * Класс для алгоритмов по закручиванию в спираль массивов<br>
  * storage -> Обёртка для int[][]<br>
