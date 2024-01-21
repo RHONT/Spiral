@@ -1,4 +1,4 @@
-package algoritmConvertArrayImpl;
+package com.mymodules.algoritmConvertArrayImpl;
 
 /**
  * Example:

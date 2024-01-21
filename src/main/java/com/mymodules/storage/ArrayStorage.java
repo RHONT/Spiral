@@ -1,4 +1,4 @@
-package storage;
+package com.mymodules.storage;
 
 import java.util.Arrays;
 

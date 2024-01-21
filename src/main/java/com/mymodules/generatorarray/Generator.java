@@ -1,10 +1,10 @@
-package generatorarray;
+package com.mymodules.generatorarray;
 
-import algoritmConvertArrayImpl.AlgorithmGenerateArray;
-import algoritmConvertArrayImpl.ClassicFillAlgorithmGenerateArray;
-import algoritmConvertArrayImpl.SpiralAlgorithmGenerateArray;
-import algoritmConvertArrayImpl.AlgorithmsList;
-import arrayinstrumentalinterfaces.AdditionalFunctionalityForGeneratorArrays;
+import com.mymodules.algoritmConvertArrayImpl.AlgorithmGenerateArray;
+import com.mymodules.algoritmConvertArrayImpl.ClassicFillAlgorithmGenerateArray;
+import com.mymodules.algoritmConvertArrayImpl.SpiralAlgorithmGenerateArray;
+import com.mymodules.algoritmConvertArrayImpl.AlgorithmsList;
+import com.mymodules.arrayinstrumentalinterfaces.AdditionalFunctionalityForGeneratorArrays;
 
 /**
  * Фабрика + Bridge. Где: <br>

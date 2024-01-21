@@ -1,5 +1,7 @@
-import algoritmConvertArrayImpl.AlgorithmsList;
-import generatorarray.Generator;
+package com.mymodules;
+
+import com.mymodules.algoritmConvertArrayImpl.AlgorithmsList;
+import com.mymodules.generatorarray.Generator;
 
 public class RunProgram {
     public static void main(String[] args) {
