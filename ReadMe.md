@@ -26,4 +26,3 @@ generator.printArray();
 
 При желании можно запустить подготовленный jar файл.
 ![img_3.png](img_3.png)
-
