@@ -14,7 +14,7 @@ import com.mymodules.arrayinstrumentalinterfaces.AdditionalFunctionalityForGener
  * Конструктор принимает размерность массива и алгоритм из {@link AlgorithmsList}<br>
  */
 public final class Generator implements AdditionalFunctionalityForGeneratorArrays {
-    private int[] _storageRowsColumns=new int[2];
+    private final int[] _storageRowsColumns=new int[2];
     private AlgorithmGenerateArray _algorithm;
     private boolean _algorithmIsChanged = false;
 
