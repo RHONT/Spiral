@@ -14,24 +14,26 @@ import com.mymodules.arrayinstrumentalinterfaces.AdditionalFunctionalityForGener
  * Конструктор принимает размерность массива и алгоритм из {@link AlgorithmsList}<br>
  */
 public final class Generator implements AdditionalFunctionalityForGeneratorArrays {
-    private final int rows;
-    private final int columns;
-    private AlgorithmGenerateArray algorithm;
+    private int[] _storageRowsColumns=new int[2];
+    private AlgorithmGenerateArray _algorithm;
+    private boolean _algorithmIsChanged = false;
 
     public Generator(int rows, int columns, AlgorithmsList algorithmsType) {
-        this.rows = rows;
-        this.columns = columns;
+        _storageRowsColumns[0]=rows;
+        _storageRowsColumns[1]=columns;
         chooseAnAlgorithm(algorithmsType);
     }
 
     public void chooseAnAlgorithm(AlgorithmsList algorithm) {
+        if (!_algorithmIsChanged) _algorithmIsChanged=true;
+
         switch (algorithm) {
             case SPIRAL: {
-                this.algorithm = new SpiralAlgorithmGenerateArray(rows, columns);
+                _algorithm = new SpiralAlgorithmGenerateArray(_storageRowsColumns[0], _storageRowsColumns[1]);
                 break;
             }
             case CLASSIC_FILL: {
-                this.algorithm = new ClassicFillAlgorithmGenerateArray(rows, columns);
+                _algorithm = new ClassicFillAlgorithmGenerateArray(_storageRowsColumns[0], _storageRowsColumns[1]);
                 break;
             }
             default:
@@ -45,8 +47,10 @@ public final class Generator implements AdditionalFunctionalityForGeneratorArray
     }
 
     public int[][] getArray() {
-        this.algorithm.generateArray();
-        return algorithm.getArray();
+        if (_algorithmIsChanged) {
+            _algorithm.generateArray();
+            _algorithmIsChanged = false;
+        }
+        return _algorithm.getArray();
     }
-
 }
