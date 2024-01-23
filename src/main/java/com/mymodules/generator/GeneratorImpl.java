@@ -1,10 +1,9 @@
-package com.mymodules.generatorarray;
+package com.mymodules.generator;
 
 import com.mymodules.algoritmConvertArrayImpl.AlgorithmGenerateArray;
 import com.mymodules.algoritmConvertArrayImpl.ClassicFillAlgorithmGenerateArray;
 import com.mymodules.algoritmConvertArrayImpl.SpiralAlgorithmGenerateArray;
 import com.mymodules.algoritmConvertArrayImpl.AlgorithmsList;
-import com.mymodules.arrayinstrumentalinterfaces.AdditionalFunctionalityForGeneratorArrays;
 
 /**
  * Фабрика + Bridge. Где: <br>
@@ -13,18 +12,19 @@ import com.mymodules.arrayinstrumentalinterfaces.AdditionalFunctionalityForGener
  * <p>
  * Конструктор принимает размерность массива и алгоритм из {@link AlgorithmsList}<br>
  */
-public final class Generator implements AdditionalFunctionalityForGeneratorArrays {
+public final class GeneratorImpl implements IGenerator {
     private final int _rows;
     private final int _column;
     private AlgorithmGenerateArray _algorithm;
     private boolean _algorithmIsChanged = false;
 
-    public Generator(int rows, int columns, AlgorithmsList algorithmsType) {
+    public GeneratorImpl(int rows, int columns, AlgorithmsList algorithmsType) {
         _rows=rows;
         _column=columns;
         chooseAnAlgorithm(algorithmsType);
     }
 
+    @Override
     public void chooseAnAlgorithm(AlgorithmsList algorithm) {
         if (!_algorithmIsChanged) _algorithmIsChanged=true;
 
@@ -43,15 +43,17 @@ public final class Generator implements AdditionalFunctionalityForGeneratorArray
 
     }
 
-    public void printArray() {
-        this.printDefault(getArray());
-    }
-
+    @Override
     public int[][] getArray() {
         if (_algorithmIsChanged) {
             _algorithm.generateArray();
             _algorithmIsChanged = false;
         }
         return _algorithm.getArray();
+    }
+
+    @Override
+    public String report() {
+        return this.defaultReport(getArray());
     }
 }
