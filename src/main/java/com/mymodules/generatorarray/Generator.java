@@ -14,13 +14,14 @@ import com.mymodules.arrayinstrumentalinterfaces.AdditionalFunctionalityForGener
  * Конструктор принимает размерность массива и алгоритм из {@link AlgorithmsList}<br>
  */
 public final class Generator implements AdditionalFunctionalityForGeneratorArrays {
-    private final int[] _storageRowsColumns=new int[2];
+    private final int _rows;
+    private final int _column;
     private AlgorithmGenerateArray _algorithm;
     private boolean _algorithmIsChanged = false;
 
     public Generator(int rows, int columns, AlgorithmsList algorithmsType) {
-        _storageRowsColumns[0]=rows;
-        _storageRowsColumns[1]=columns;
+        _rows=rows;
+        _column=columns;
         chooseAnAlgorithm(algorithmsType);
     }
 
@@ -29,11 +30,11 @@ public final class Generator implements AdditionalFunctionalityForGeneratorArray
 
         switch (algorithm) {
             case SPIRAL: {
-                _algorithm = new SpiralAlgorithmGenerateArray(_storageRowsColumns[0], _storageRowsColumns[1]);
+                _algorithm = new SpiralAlgorithmGenerateArray(_rows, _column);
                 break;
             }
             case CLASSIC_FILL: {
-                _algorithm = new ClassicFillAlgorithmGenerateArray(_storageRowsColumns[0], _storageRowsColumns[1]);
+                _algorithm = new ClassicFillAlgorithmGenerateArray(_rows, _column);
                 break;
             }
             default:
