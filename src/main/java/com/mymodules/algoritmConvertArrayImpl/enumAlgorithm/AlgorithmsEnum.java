@@ -1,8 +1,8 @@
 package com.mymodules.algoritmConvertArrayImpl.enumAlgorithm;
 
 import com.mymodules.algoritmConvertArrayImpl.AlgorithmGenerateArray;
-import com.mymodules.algoritmConvertArrayImpl.ClassicFillAlgorithmGenerateArray;
-import com.mymodules.algoritmConvertArrayImpl.SpiralAlgorithmGenerateArray;
+import com.mymodules.algoritmConvertArrayImpl.ClassicAlgorithm;
+import com.mymodules.algoritmConvertArrayImpl.SpiralAlgorithm;
 
 import java.util.function.Supplier;
 
@@ -10,8 +10,8 @@ import java.util.function.Supplier;
  * Список алгоритмов генерации массивов
  */
 public enum AlgorithmsEnum {
-    SPIRAL(SpiralAlgorithmGenerateArray::new),
-    CLASSIC_FILL(ClassicFillAlgorithmGenerateArray::new);
+    SPIRAL(SpiralAlgorithm::new),
+    CLASSIC_FILL(ClassicAlgorithm::new);
 
     private final Supplier<AlgorithmGenerateArray> _algorithmSupplier;
 

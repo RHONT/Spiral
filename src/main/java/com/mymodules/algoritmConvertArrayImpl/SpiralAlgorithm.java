@@ -12,7 +12,7 @@ package com.mymodules.algoritmConvertArrayImpl;
  * cursorColumn - аналогично<br>
  * cursorTemp - принимает значение индекса по завершению каждой итерации. Имеет влияние на cursorRows/cursorColumn<br>
  */
-public final class SpiralAlgorithmGenerateArray extends AlgorithmGenerateArray {
+public final class SpiralAlgorithm extends AlgorithmGenerateArray {
 
     private int _totalIncrement = 1;
     private int _cursorRows = 0;

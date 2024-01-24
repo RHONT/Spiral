@@ -6,7 +6,7 @@ package com.mymodules.algoritmConvertArrayImpl;
  * 4 5 6
  * 7 8 9
  */
-public class ClassicFillAlgorithmGenerateArray extends AlgorithmGenerateArray {
+public class ClassicAlgorithm extends AlgorithmGenerateArray {
 
     @Override
     public int[][] generateArray() {

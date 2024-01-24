@@ -6,13 +6,13 @@ import java.util.Arrays;
  * Обертка для массива. <br>
  * Хранит в себе базовую информацию о массиве: кол-во строк/колонок и сумму элементов
  */
-public final class ArrayStorage {
+public final class Array2DStorage {
     private final int rows;
     private final int column;
     private int sumElement;
     private final int[][] array;
 
-    public ArrayStorage(int rows, int columns) {
+    public Array2DStorage(int rows, int columns) {
         this.rows = rows;
         this.column = columns;
         this.sumElement = rows*column;
