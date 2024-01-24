@@ -3,7 +3,7 @@ package com.mymodules.generator;
 import com.mymodules.algoritmConvertArrayImpl.AlgorithmGenerateArray;
 import com.mymodules.algoritmConvertArrayImpl.ClassicFillAlgorithmGenerateArray;
 import com.mymodules.algoritmConvertArrayImpl.SpiralAlgorithmGenerateArray;
-import com.mymodules.algoritmConvertArrayImpl.AlgorithmsList;
+import com.mymodules.algoritmConvertArrayImpl.enumAlgorithm.AlgorithmsList;
 import com.mymodules.generator.statement.HtmlStatement;
 import com.mymodules.generator.statement.TextStatement;
 

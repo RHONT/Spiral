@@ -1,6 +1,6 @@
 package com.mymodules;
 
-import com.mymodules.algoritmConvertArrayImpl.AlgorithmsList;
+import com.mymodules.algoritmConvertArrayImpl.enumAlgorithm.AlgorithmsList;
 import com.mymodules.generator.Generator;
 
 import java.util.HashSet;

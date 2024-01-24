@@ -1,6 +1,6 @@
 package com.mymodules.generator;
 
-import com.mymodules.algoritmConvertArrayImpl.AlgorithmsList;
+import com.mymodules.algoritmConvertArrayImpl.enumAlgorithm.AlgorithmsList;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

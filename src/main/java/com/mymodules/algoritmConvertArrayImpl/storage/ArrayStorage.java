@@ -1,4 +1,4 @@
-package com.mymodules.storage;
+package com.mymodules.algoritmConvertArrayImpl.storage;
 
 import java.util.Arrays;
 
