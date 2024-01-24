@@ -21,7 +21,7 @@ import com.mymodules.generator.statement.TextStatement;
 public final class Generator implements IGenerator {
 
     private AlgorithmGenerateArray _algorithm;
-    private boolean _algorithmIsChanged=true;
+    private boolean _doCalculate =true;
 
     private Generator(int rows, int columns, AlgorithmsEnum algorithmsType) {
         selectAlgorithmFromEnum(algorithmsType);
@@ -55,16 +55,16 @@ public final class Generator implements IGenerator {
             int tempColumns = _algorithm.getArray()[0].length;
             _algorithm=algorithm.getInstance();
             _algorithm.createStorage(tempRows, tempColumns);
-            _algorithmIsChanged=true;
+            _doCalculate =true;
 
         } else _algorithm = algorithm.getInstance();
     }
 
     @Override
     public int[][] getArray() {
-        if (_algorithmIsChanged) {
+        if (_doCalculate) {
             _algorithm.generateArray();
-            _algorithmIsChanged = false;
+            _doCalculate = false;
         }
         return _algorithm.getArray();
     }
