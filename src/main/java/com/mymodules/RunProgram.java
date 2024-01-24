@@ -1,7 +1,7 @@
 package com.mymodules;
 
 import com.mymodules.algoritmConvertArrayImpl.AlgorithmsList;
-import com.mymodules.generator.GeneratorImpl;
+import com.mymodules.generator.Generator;
 
 import java.util.HashSet;
 import java.util.Scanner;
@@ -26,8 +26,8 @@ public class RunProgram {
             rows = checkAndTakeDigit(scanner.nextLine());
             System.out.println("Введите кол-во столбцов");
             column = checkAndTakeDigit(scanner.nextLine());
-            GeneratorImpl generatorImpl = new GeneratorImpl(rows, column, AlgorithmsList.values()[inputNumberAlgorithm]);
-            System.out.println(generatorImpl.TextStatement());
+            Generator generator = new Generator(rows, column, AlgorithmsList.values()[inputNumberAlgorithm]);
+            System.out.println(generator.TextStatement());
             System.out.println("Для выхода из приложения введите -1, для продолжения любую другую цифру");
             checkAndTakeDigit(scanner.nextLine());
         }

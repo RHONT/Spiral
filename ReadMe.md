@@ -4,11 +4,11 @@
 Клиентский код:
 
 ```
-Generator generatorImpl =new Generator(5, 5, AlgorithmsList.SPIRAL);
-generatorImpl.printArray();
+Generator generator =new Generator(5, 5, AlgorithmsList.SPIRAL);
+generator.printArray();
 System.out.println("=".repeat(20));
-generatorImpl.changeAlgorithmGeneration(AlgorithmsList.CLASSIC_FILL);
-generatorImpl.printArray();
+generator.changeAlgorithmGeneration(AlgorithmsList.CLASSIC_FILL);
+generator.printArray();
 ```
 
 Способ решения:  

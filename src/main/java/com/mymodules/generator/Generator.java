@@ -14,16 +14,22 @@ import com.mymodules.generator.statement.TextStatement;
  * <p>
  * Конструктор принимает размерность массива и алгоритм из {@link AlgorithmsList}<br>
  */
-public final class GeneratorImpl implements IGenerator {
+public final class Generator implements IGenerator {
     private final int _rows;
     private final int _column;
     private AlgorithmGenerateArray _algorithm;
     private boolean _algorithmIsChanged = false;
 
-    public GeneratorImpl(int rows, int columns, AlgorithmsList algorithmsType) {
+    public Generator(int rows, int columns, AlgorithmsList algorithmsType) {
         _rows=rows;
         _column=columns;
         chooseAnAlgorithm(algorithmsType);
+    }
+
+    public Generator(int rows, int columns, AlgorithmGenerateArray algorithmGenerate) {
+        _rows=rows;
+        _column=columns;
+        _algorithm=algorithmGenerate;
     }
 
     @Override
