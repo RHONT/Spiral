@@ -1,9 +1,21 @@
-Задача: Закрутить 2d массив в спираль
+**Задача: Закрутить 2d массив в спираль**  
+
+Алгоритм Spiral
+Пример:  
+1 2 3  
+8 9 4  
+7 6 5  
+Для усложнения задачи решил разработать архитектуру для модуля, который бы мог работать с множеством алгоритмов по 
+генерации массивов. Для наглядности добавил алгоритм Classic:  
+1 2 3  
+4 5 6  
+7 8 9  
+
 
 ![img_4.png](img_4.png)
 Клиентский код:
 
-```
+```java
 Generator generator =Generator.createDefault(5, 5, AlgorithmsList.SPIRAL);
 System.out.println(generator.TextStatement());
 System.out.println("=".repeat(20));
@@ -18,8 +30,24 @@ System.out.println(generator.TextStatement());
 
 **Особенности:**
 - Применен паттерн "команда"  
-Инициатор: Generator  
-Получатели: все наследники базового алгоритмического класса
+Инициатор: **Generator**  
+Получатели: все наследники базового алгоритмического класса **AlgorithmGenerateArray**
+- Регистрация нового алгоритма происходит в "АlgorithmsEnum". Нужно просто добавить supplier<>
+```java
+NEW_ALGORITHM ( NewClassAlgorithm::new )
+```
+- Так же есть возможность через шаблонный метод внедрить свой собственный класс с алгоритмом, 
+которого нет в enum алгоритмов. 
+```java
+//client code
+IGenerator generator=Generator.createCustomAlgorithm(3,3, new AlgorithmClass);
+```
+- Вывод массива предоставлен двумя методами класса Generator.
+```java
+String HtmlStatement();
+String TextStatement();
+```
+
 
 Тесты:  
 ![img_2.png](img_2.png)
