@@ -7,6 +7,6 @@ package com.mymodules.generator.statement;
 public class HtmlStatement extends Statement {
     @Override
     void setDelimiter() {
-        _delimiter="<BR>";
+        _delimiterLine ="<BR>";
     }
 }

@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public abstract class Statement {
     protected String _head= "Массив сгенерирован:";
-    protected String _delimiter;
+    protected String _delimiterLine;
     protected StringBuilder sb=new StringBuilder();
 
     public Statement() {
@@ -16,9 +16,9 @@ public abstract class Statement {
 
     public String value(int[][] inputArray) {
         sb.append(_head);
-        sb.append(_delimiter);
+        sb.append(_delimiterLine);
         for (var element : inputArray) {
-            sb.append(Arrays.toString(element)).append(_delimiter);
+            sb.append(Arrays.toString(element)).append(_delimiterLine);
         }
         return sb.toString();
     }

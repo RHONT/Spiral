@@ -7,6 +7,6 @@ package com.mymodules.generator.statement;
 public class TextStatement extends Statement {
     @Override
      void setDelimiter() {
-        _delimiter="\n";
+        _delimiterLine ="\n";
     }
 }
