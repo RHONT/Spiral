@@ -20,16 +20,23 @@ public final class Generator implements IGenerator {
     private AlgorithmGenerateArray _algorithm;
     private boolean _algorithmIsChanged = false;
 
-    public Generator(int rows, int columns, AlgorithmsList algorithmsType) {
+    private Generator(int rows, int columns, AlgorithmsList algorithmsType) {
         _rows=rows;
         _column=columns;
         chooseAnAlgorithm(algorithmsType);
     }
 
-    public Generator(int rows, int columns, AlgorithmGenerateArray algorithmGenerate) {
+    private Generator(int rows, int columns, AlgorithmGenerateArray algorithmGenerate) {
         _rows=rows;
         _column=columns;
         _algorithm=algorithmGenerate;
+    }
+
+    public static Generator createDefault(int rows, int columns, AlgorithmsList algorithmsType){
+        return new Generator(rows,columns,algorithmsType);
+    }
+    public static Generator createCustomAlgorithm(int rows, int columns, AlgorithmGenerateArray algorithmGenerate){
+        return new Generator(rows,columns,algorithmGenerate);
     }
 
     @Override
