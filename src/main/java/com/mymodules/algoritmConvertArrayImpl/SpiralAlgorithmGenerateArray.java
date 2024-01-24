@@ -19,8 +19,7 @@ public final class SpiralAlgorithmGenerateArray extends AlgorithmGenerateArray {
     private int cursorColumn = 0;
     private int cursorTemp = 0;
 
-    public SpiralAlgorithmGenerateArray(int rows, int columns) {
-        super(rows, columns);
+    public SpiralAlgorithmGenerateArray() {
     }
 
     @Override
@@ -87,5 +86,7 @@ public final class SpiralAlgorithmGenerateArray extends AlgorithmGenerateArray {
         cursorColumn--;
         return storage.getSumElement() > 0;
     }
+
+
 
 }

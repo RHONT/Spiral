@@ -7,9 +7,7 @@ package com.mymodules.algoritmConvertArrayImpl;
  * 7 8 9
  */
 public class ClassicFillAlgorithmGenerateArray extends AlgorithmGenerateArray {
-    public ClassicFillAlgorithmGenerateArray(int rows, int columns) {
-        super(rows, columns);
-    }
+    public ClassicFillAlgorithmGenerateArray() {}
 
     @Override
     public int[][] generateArray() {

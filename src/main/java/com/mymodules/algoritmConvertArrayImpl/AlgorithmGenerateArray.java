@@ -10,8 +10,7 @@ import com.mymodules.algoritmConvertArrayImpl.storage.ArrayStorage;
 public abstract class AlgorithmGenerateArray {
     protected ArrayStorage storage;
 
-    public AlgorithmGenerateArray(int rows, int columns) {
-        this.storage = new ArrayStorage(rows,columns);
+    public AlgorithmGenerateArray() {
     }
 
     public abstract int[][] generateArray();
@@ -19,5 +18,11 @@ public abstract class AlgorithmGenerateArray {
     public int[][] getArray(){
         return storage.getArray();
     }
+
+    public void createStorage(int rows, int columns){
+        this.storage = new ArrayStorage(rows,columns);
+    }
+
+
 
 }

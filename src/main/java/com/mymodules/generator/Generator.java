@@ -15,47 +15,38 @@ import com.mymodules.generator.statement.TextStatement;
  * Конструктор принимает размерность массива и алгоритм из {@link AlgorithmsList}<br>
  */
 public final class Generator implements IGenerator {
-    private final int _rows;
-    private final int _column;
+
     private AlgorithmGenerateArray _algorithm;
-    private boolean _algorithmIsChanged = false;
+    private boolean _algorithmIsChanged=true;
 
     private Generator(int rows, int columns, AlgorithmsList algorithmsType) {
-        _rows=rows;
-        _column=columns;
         chooseAnAlgorithm(algorithmsType);
+        _algorithm.createStorage(rows, columns);
     }
 
     private Generator(int rows, int columns, AlgorithmGenerateArray algorithmGenerate) {
-        _rows=rows;
-        _column=columns;
-        _algorithm=algorithmGenerate;
+        _algorithm = algorithmGenerate;
+        _algorithm.createStorage(rows, columns);
     }
 
-    public static Generator createDefault(int rows, int columns, AlgorithmsList algorithmsType){
-        return new Generator(rows,columns,algorithmsType);
+    public static Generator createDefault(int rows, int columns, AlgorithmsList algorithmsType) {
+        return new Generator(rows, columns, algorithmsType);
     }
-    public static Generator createCustomAlgorithm(int rows, int columns, AlgorithmGenerateArray algorithmGenerate){
-        return new Generator(rows,columns,algorithmGenerate);
+
+    public static Generator createCustomAlgorithm(int rows, int columns, AlgorithmGenerateArray algorithmGenerate) {
+        return new Generator(rows, columns, algorithmGenerate);
     }
 
     @Override
     public void chooseAnAlgorithm(AlgorithmsList algorithm) {
-        if (!_algorithmIsChanged) _algorithmIsChanged=true;
+        if (_algorithm!=null) {
+            int tempRows = _algorithm.getArray().length;
+            int tempColumns = _algorithm.getArray()[0].length;
+            _algorithm=algorithm.getAlgorithmGenerateArray();
+            _algorithm.createStorage(tempRows, tempColumns);
+            _algorithmIsChanged=true;
 
-        switch (algorithm) {
-            case SPIRAL: {
-                _algorithm = new SpiralAlgorithmGenerateArray(_rows, _column);
-                break;
-            }
-            case CLASSIC_FILL: {
-                _algorithm = new ClassicFillAlgorithmGenerateArray(_rows, _column);
-                break;
-            }
-            default:
-                throw new RuntimeException("Алгоритм не включен в switch-case класса " + this.getClass());
-        }
-
+        } else _algorithm = algorithm.getAlgorithmGenerateArray();
     }
 
     @Override
