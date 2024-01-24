@@ -4,6 +4,8 @@ import com.mymodules.algoritmConvertArrayImpl.AlgorithmGenerateArray;
 import com.mymodules.algoritmConvertArrayImpl.ClassicFillAlgorithmGenerateArray;
 import com.mymodules.algoritmConvertArrayImpl.SpiralAlgorithmGenerateArray;
 import com.mymodules.algoritmConvertArrayImpl.AlgorithmsList;
+import com.mymodules.generator.statement.HtmlStatement;
+import com.mymodules.generator.statement.TextStatement;
 
 /**
  * Фабрика + Bridge. Где: <br>
@@ -53,7 +55,12 @@ public final class GeneratorImpl implements IGenerator {
     }
 
     @Override
-    public String report() {
-        return this.defaultReport(getArray());
+    public String HtmlStatement() {
+        return new HtmlStatement().value(getArray());
+    }
+
+    @Override
+    public String TextStatement() {
+        return new TextStatement().value(getArray());
     }
 }

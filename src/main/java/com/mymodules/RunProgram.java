@@ -27,7 +27,7 @@ public class RunProgram {
             System.out.println("Введите кол-во столбцов");
             column = checkAndTakeDigit(scanner.nextLine());
             GeneratorImpl generatorImpl = new GeneratorImpl(rows, column, AlgorithmsList.values()[inputNumberAlgorithm]);
-            System.out.println(generatorImpl.report());
+            System.out.println(generatorImpl.TextStatement());
             System.out.println("Для выхода из приложения введите -1, для продолжения любую другую цифру");
             checkAndTakeDigit(scanner.nextLine());
         }
