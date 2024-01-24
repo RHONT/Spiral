@@ -8,19 +8,19 @@ import java.util.Arrays;
 public abstract class Statement {
     protected String _head= "Массив сгенерирован:";
     protected String _delimiterLine;
-    protected StringBuilder sb=new StringBuilder();
+    protected StringBuilder _sb =new StringBuilder();
 
     public Statement() {
         setDelimiter();
     }
 
     public String value(int[][] inputArray) {
-        sb.append(_head);
-        sb.append(_delimiterLine);
+        _sb.append(_head);
+        _sb.append(_delimiterLine);
         for (var element : inputArray) {
-            sb.append(Arrays.toString(element)).append(_delimiterLine);
+            _sb.append(Arrays.toString(element)).append(_delimiterLine);
         }
-        return sb.toString();
+        return _sb.toString();
     }
 
     abstract void setDelimiter();

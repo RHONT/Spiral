@@ -9,13 +9,13 @@ import java.util.function.Supplier;
 /**
  * Список алгоритмов генерации массивов
  */
-public enum AlgorithmsList {
+public enum AlgorithmsEnum {
     SPIRAL(SpiralAlgorithmGenerateArray::new),
     CLASSIC_FILL(ClassicFillAlgorithmGenerateArray::new);
 
     private final Supplier<AlgorithmGenerateArray> _algorithmSupplier;
 
-    AlgorithmsList(Supplier<AlgorithmGenerateArray> _algorithmSupplier) {
+    AlgorithmsEnum(Supplier<AlgorithmGenerateArray> _algorithmSupplier) {
         this._algorithmSupplier = _algorithmSupplier;
     }
 

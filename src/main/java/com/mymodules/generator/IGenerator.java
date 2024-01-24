@@ -1,9 +1,9 @@
 package com.mymodules.generator;
 
-import com.mymodules.algoritmConvertArrayImpl.enumAlgorithm.AlgorithmsList;
+import com.mymodules.algoritmConvertArrayImpl.enumAlgorithm.AlgorithmsEnum;
 
 public interface IGenerator {
-     void chooseAnAlgorithm(AlgorithmsList algorithm);
+     void selectAlgorithmFromEnum(AlgorithmsEnum algorithm);
      int[][] getArray();
      String HtmlStatement();
      String TextStatement();

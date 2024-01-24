@@ -1,26 +1,30 @@
 package com.mymodules.generator;
 
 import com.mymodules.algoritmConvertArrayImpl.AlgorithmGenerateArray;
-import com.mymodules.algoritmConvertArrayImpl.ClassicFillAlgorithmGenerateArray;
-import com.mymodules.algoritmConvertArrayImpl.SpiralAlgorithmGenerateArray;
-import com.mymodules.algoritmConvertArrayImpl.enumAlgorithm.AlgorithmsList;
+import com.mymodules.algoritmConvertArrayImpl.enumAlgorithm.AlgorithmsEnum;
 import com.mymodules.generator.statement.HtmlStatement;
 import com.mymodules.generator.statement.TextStatement;
 
 /**
- * Фабрика + Bridge. Где: <br>
- * Мост выступает - {@link AlgorithmGenerateArray}<br>
- * Фабрика: фабричный метод changeAlgorithmGeneration()<br>
+ * Конструкторы заменил фабричными методами:<br>
+ * Один берет алгоритмы из enum, а во второй можно положить кастомный алгоритм.<br>
+ * Паттерн команда где:<br>
+ * Инициатор: выступает - {@link Generator}<br>
+ * Получатель: - {@link AlgorithmGenerateArray}<br>
  * <p>
- * Конструктор принимает размерность массива и алгоритм из {@link AlgorithmsList}<br>
+ * Конструкторы принимают размерность массива и алгоритм из {@link AlgorithmsEnum}<br>
+ *
+ * _algorithm - алгоритм генерации массива<br>
+ * _algorithmIsChanged - если true, значит требуется действия по генерации, если нет, то возвращаем существующую<br>
+ * копию сгенерированного массива ранее. Нужно для того, чтобы при вызове метода getArray(), делать каждый раз генерацию.<br>
  */
 public final class Generator implements IGenerator {
 
     private AlgorithmGenerateArray _algorithm;
     private boolean _algorithmIsChanged=true;
 
-    private Generator(int rows, int columns, AlgorithmsList algorithmsType) {
-        chooseAnAlgorithm(algorithmsType);
+    private Generator(int rows, int columns, AlgorithmsEnum algorithmsType) {
+        selectAlgorithmFromEnum(algorithmsType);
         _algorithm.createStorage(rows, columns);
     }
 
@@ -29,7 +33,7 @@ public final class Generator implements IGenerator {
         _algorithm.createStorage(rows, columns);
     }
 
-    public static Generator createDefault(int rows, int columns, AlgorithmsList algorithmsType) {
+    public static Generator createDefault(int rows, int columns, AlgorithmsEnum algorithmsType) {
         return new Generator(rows, columns, algorithmsType);
     }
 
@@ -37,8 +41,15 @@ public final class Generator implements IGenerator {
         return new Generator(rows, columns, algorithmGenerate);
     }
 
+    /**
+     * Выбираем алгоритм для генерации.
+     * Создает класс из enum AlgorithmsList
+     * Если алгоритм меняется в уже созданном объекте,
+     * мы обновляем хранилище в объекте AlgorithmGenerateArray,
+     * так как значения будут обновлены
+     */
     @Override
-    public void chooseAnAlgorithm(AlgorithmsList algorithm) {
+    public void selectAlgorithmFromEnum(AlgorithmsEnum algorithm) {
         if (_algorithm!=null) {
             int tempRows = _algorithm.getArray().length;
             int tempColumns = _algorithm.getArray()[0].length;

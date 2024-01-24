@@ -6,9 +6,10 @@ import com.mymodules.algoritmConvertArrayImpl.storage.ArrayStorage;
  * storage -> Обёртка для int[][]<br>
  * generateArray - начать генерацию массива<br>
  * getArray - возвращает сгенерированный массив из {@link ArrayStorage}<br>
+ * createStorage - создаем хранилище для результата алгоритма
  */
 public abstract class AlgorithmGenerateArray {
-    protected ArrayStorage storage;
+    protected ArrayStorage _storage;
 
     public AlgorithmGenerateArray() {
     }
@@ -16,11 +17,11 @@ public abstract class AlgorithmGenerateArray {
     public abstract int[][] generateArray();
 
     public int[][] getArray(){
-        return storage.getArray();
+        return _storage.getArray();
     }
 
     public void createStorage(int rows, int columns){
-        this.storage = new ArrayStorage(rows,columns);
+        this._storage = new ArrayStorage(rows,columns);
     }
 
 

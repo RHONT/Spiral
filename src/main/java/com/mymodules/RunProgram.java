@@ -1,6 +1,6 @@
 package com.mymodules;
 
-import com.mymodules.algoritmConvertArrayImpl.enumAlgorithm.AlgorithmsList;
+import com.mymodules.algoritmConvertArrayImpl.enumAlgorithm.AlgorithmsEnum;
 import com.mymodules.generator.Generator;
 
 import java.util.HashSet;
@@ -26,7 +26,7 @@ public class RunProgram {
             rows = checkAndTakeDigit(scanner.nextLine());
             System.out.println("Введите кол-во столбцов");
             column = checkAndTakeDigit(scanner.nextLine());
-            Generator generator = Generator.createDefault(rows, column, AlgorithmsList.values()[inputNumberAlgorithm]);
+            Generator generator = Generator.createDefault(rows, column, AlgorithmsEnum.values()[inputNumberAlgorithm]);
             System.out.println(generator.TextStatement());
             System.out.println("Для выхода из приложения введите -1, для продолжения любую другую цифру");
             checkAndTakeDigit(scanner.nextLine());
@@ -63,7 +63,7 @@ public class RunProgram {
     }
 
     private static void printAlgorithm() {
-        for (var element : AlgorithmsList.values()) {
+        for (var element : AlgorithmsEnum.values()) {
             setDigitAlgorithm.add(element.ordinal());
             System.out.println(element.ordinal() + " - " + element.name());
         }

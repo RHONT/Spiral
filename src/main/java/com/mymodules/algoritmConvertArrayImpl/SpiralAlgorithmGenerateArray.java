@@ -14,74 +14,74 @@ package com.mymodules.algoritmConvertArrayImpl;
  */
 public final class SpiralAlgorithmGenerateArray extends AlgorithmGenerateArray {
 
-    private int totalIncrement = 1;
-    private int cursorRows = 0;
-    private int cursorColumn = 0;
-    private int cursorTemp = 0;
+    private int _totalIncrement = 1;
+    private int _cursorRows = 0;
+    private int _cursorColumn = 0;
+    private int _cursorTemp = 0;
 
     @Override
     public int[][] generateArray() {
-        while (storage.getSumElement() > 0) {
-            if (!writeDigitToRightInSingleRow(storage.getArray())) break;
-            if (!writeDigitToDownInSingleColumn(storage.getArray())) break;
-            if (!writeDigitToLeftInSingleRow(storage.getArray())) break;
-            if (!writeDigitToUpInSingleColumn(storage.getArray())) break;
+        while (_storage.getSumElement() > 0) {
+            if (!writeDigitToRightInSingleRow(_storage.getArray())) break;
+            if (!writeDigitToDownInSingleColumn(_storage.getArray())) break;
+            if (!writeDigitToLeftInSingleRow(_storage.getArray())) break;
+            if (!writeDigitToUpInSingleColumn(_storage.getArray())) break;
         }
-        return storage.getArray();
+        return _storage.getArray();
     }
 
     private boolean writeDigitToRightInSingleRow(int[][] arrS) {
-        for (int i = cursorColumn; i < storage.getColumn(); i++) {
-            if (arrS[cursorRows][i] == 0) {
-                arrS[cursorRows][i] = totalIncrement++;
-                cursorTemp = i;
-                storage.reduceByOne();
+        for (int i = _cursorColumn; i < _storage.getColumn(); i++) {
+            if (arrS[_cursorRows][i] == 0) {
+                arrS[_cursorRows][i] = _totalIncrement++;
+                _cursorTemp = i;
+                _storage.reduceByOne();
             } else
                 break;
         }
-        cursorColumn = cursorTemp;
-        cursorRows++;
-        return storage.getSumElement() > 0;
+        _cursorColumn = _cursorTemp;
+        _cursorRows++;
+        return _storage.getSumElement() > 0;
     }
 
     private boolean writeDigitToUpInSingleColumn(int[][] arrS) {
-        for (int j = cursorRows; j >= 0; j--) {
-            if (arrS[j][cursorColumn] == 0) {
-                arrS[j][cursorColumn] = totalIncrement++;
-                cursorTemp = j;
-                storage.reduceByOne();
+        for (int j = _cursorRows; j >= 0; j--) {
+            if (arrS[j][_cursorColumn] == 0) {
+                arrS[j][_cursorColumn] = _totalIncrement++;
+                _cursorTemp = j;
+                _storage.reduceByOne();
             } else break;
         }
-        cursorRows = cursorTemp;
-        cursorColumn++;
-        return storage.getSumElement() > 0;
+        _cursorRows = _cursorTemp;
+        _cursorColumn++;
+        return _storage.getSumElement() > 0;
     }
 
     private boolean writeDigitToLeftInSingleRow(int[][] arrS) {
-        for (int i = cursorColumn; i >= 0; i--) {
-            if (arrS[cursorRows][i] == 0) {
-                arrS[cursorRows][i] = totalIncrement++;
-                cursorTemp = i;
-                storage.reduceByOne();
+        for (int i = _cursorColumn; i >= 0; i--) {
+            if (arrS[_cursorRows][i] == 0) {
+                arrS[_cursorRows][i] = _totalIncrement++;
+                _cursorTemp = i;
+                _storage.reduceByOne();
             } else
                 break;
         }
-        cursorColumn = cursorTemp;
-        cursorRows--;
-        return storage.getSumElement() > 0;
+        _cursorColumn = _cursorTemp;
+        _cursorRows--;
+        return _storage.getSumElement() > 0;
     }
 
     private boolean writeDigitToDownInSingleColumn(int[][] arrS) {
-        for (int j = cursorRows; j < storage.getRows(); j++) {
-            if (arrS[j][cursorColumn] == 0) {
-                arrS[j][cursorColumn] = totalIncrement++;
-                cursorTemp = j;
-                storage.reduceByOne();
+        for (int j = _cursorRows; j < _storage.getRows(); j++) {
+            if (arrS[j][_cursorColumn] == 0) {
+                arrS[j][_cursorColumn] = _totalIncrement++;
+                _cursorTemp = j;
+                _storage.reduceByOne();
             } else break;
         }
-        cursorRows = cursorTemp;
-        cursorColumn--;
-        return storage.getSumElement() > 0;
+        _cursorRows = _cursorTemp;
+        _cursorColumn--;
+        return _storage.getSumElement() > 0;
     }
 
 
