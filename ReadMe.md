@@ -1,14 +1,14 @@
 Задача: Закрутить 2d массив в спираль
 
-![img_1.png](img_1.png)  
+![img_4.png](img_4.png)
 Клиентский код:
 
 ```
-Generator generator =new Generator(5, 5, AlgorithmsList.SPIRAL);
-generator.printArray();
+Generator generator =Generator.createDefault(5, 5, AlgorithmsList.SPIRAL);
+System.out.println(generator.TextStatement());
 System.out.println("=".repeat(20));
-generator.changeAlgorithmGeneration(AlgorithmsList.CLASSIC_FILL);
-generator.printArray();
+generator.selectAlgorithmFromEnum(AlgorithmsList.CLASSIC_FILL);
+System.out.println(generator.TextStatement());
 ```
 
 Способ решения:  
