@@ -42,11 +42,11 @@ public final class Generator implements IGenerator {
         if (_algorithm!=null) {
             int tempRows = _algorithm.getArray().length;
             int tempColumns = _algorithm.getArray()[0].length;
-            _algorithm=algorithm.getAlgorithmGenerateArray();
+            _algorithm=algorithm.getInstance();
             _algorithm.createStorage(tempRows, tempColumns);
             _algorithmIsChanged=true;
 
-        } else _algorithm = algorithm.getAlgorithmGenerateArray();
+        } else _algorithm = algorithm.getInstance();
     }
 
     @Override

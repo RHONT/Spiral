@@ -4,20 +4,22 @@ import com.mymodules.algoritmConvertArrayImpl.AlgorithmGenerateArray;
 import com.mymodules.algoritmConvertArrayImpl.ClassicFillAlgorithmGenerateArray;
 import com.mymodules.algoritmConvertArrayImpl.SpiralAlgorithmGenerateArray;
 
+import java.util.function.Supplier;
+
 /**
  * Список алгоритмов генерации массивов
  */
 public enum AlgorithmsList {
-    SPIRAL(new SpiralAlgorithmGenerateArray()),
-    CLASSIC_FILL(new ClassicFillAlgorithmGenerateArray());
+    SPIRAL(SpiralAlgorithmGenerateArray::new),
+    CLASSIC_FILL(ClassicFillAlgorithmGenerateArray::new);
 
-    private AlgorithmGenerateArray algorithmGenerateArray;
+    private final Supplier<AlgorithmGenerateArray> _algorithmSupplier;
 
-    AlgorithmsList(AlgorithmGenerateArray someAlgorithmGenerateArray) {
-        algorithmGenerateArray=someAlgorithmGenerateArray;
+    AlgorithmsList(Supplier<AlgorithmGenerateArray> _algorithmSupplier) {
+        this._algorithmSupplier = _algorithmSupplier;
     }
 
-    public AlgorithmGenerateArray getAlgorithmGenerateArray() {
-        return algorithmGenerateArray;
+    public  AlgorithmGenerateArray getInstance(){
+        return _algorithmSupplier.get();
     }
 }

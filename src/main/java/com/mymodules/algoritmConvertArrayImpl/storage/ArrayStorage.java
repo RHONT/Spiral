@@ -38,4 +38,6 @@ public final class ArrayStorage {
     public void reduceByOne(){
         sumElement--;
     }
+
+
 }

@@ -36,4 +36,14 @@ class GeneratorTest {
         assertArrayEquals(expected, generator.getArray());
     }
 
+    @Test
+    void AreTheStoragesDifferent(){
+        IGenerator generator=Generator.createDefault(3,3, AlgorithmsList.SPIRAL);
+        generator.getArray();
+        IGenerator generator2=Generator.createDefault(3,3, AlgorithmsList.SPIRAL);
+        generator2.getArray();
+        assertFalse(generator==generator2);
+
+    }
+
 }

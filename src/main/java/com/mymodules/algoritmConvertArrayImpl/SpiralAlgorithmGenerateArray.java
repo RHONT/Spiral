@@ -19,9 +19,6 @@ public final class SpiralAlgorithmGenerateArray extends AlgorithmGenerateArray {
     private int cursorColumn = 0;
     private int cursorTemp = 0;
 
-    public SpiralAlgorithmGenerateArray() {
-    }
-
     @Override
     public int[][] generateArray() {
         while (storage.getSumElement() > 0) {
