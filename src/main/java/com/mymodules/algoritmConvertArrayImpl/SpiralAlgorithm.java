@@ -21,11 +21,11 @@ public final class SpiralAlgorithm extends AlgorithmGenerateArray {
 
     @Override
     public int[][] generateArray() {
-        while (_storage.getSumElement() > 0) {
-            if (!writeDigitToRightInSingleRow(_storage.getArray())) break;
-            if (!writeDigitToDownInSingleColumn(_storage.getArray())) break;
-            if (!writeDigitToLeftInSingleRow(_storage.getArray())) break;
-            if (!writeDigitToUpInSingleColumn(_storage.getArray())) break;
+        while (_storage.get_total()+1 > _totalIncrement) {
+            if (!writeDigitToRightInSingleRow(_storage.getArrayForOperation())) break;
+            if (!writeDigitToDownInSingleColumn(_storage.getArrayForOperation())) break;
+            if (!writeDigitToLeftInSingleRow(_storage.getArrayForOperation())) break;
+            if (!writeDigitToUpInSingleColumn(_storage.getArrayForOperation())) break;
         }
         return _storage.getArray();
     }
@@ -52,7 +52,7 @@ public final class SpiralAlgorithm extends AlgorithmGenerateArray {
 
     private boolean writeDigitToUpInSingleColumn(int[][] arrS) {
         for (int j = _cursorRows; j >= 0; j--) {
-            if (!writeLeft(arrS, j)) break;
+            if (!writeColumn(arrS, j)) break;
         }
         _cursorRows = _cursorTemp;
         _cursorColumn++;
@@ -62,9 +62,10 @@ public final class SpiralAlgorithm extends AlgorithmGenerateArray {
 
     private boolean writeDigitToDownInSingleColumn(int[][] arrS) {
         for (int j = _cursorRows; j < _storage.getRows(); j++) {
-            if (!writeLeft(arrS, j)) break;
+            if (!writeColumn(arrS, j)) break;
         }
-
+        _cursorRows = _cursorTemp;
+        _cursorColumn--;
         return _storage.getSumElement() > 0;
     }
 
@@ -78,7 +79,7 @@ public final class SpiralAlgorithm extends AlgorithmGenerateArray {
         } else return false;
     }
 
-    private boolean writeLeft(int[][] inputArr, int i) {
+    private boolean writeColumn(int[][] inputArr, int i) {
         if (inputArr[i][_cursorColumn] == 0) {
             inputArr[i][_cursorColumn] = _totalIncrement++;
             _cursorTemp = i;
