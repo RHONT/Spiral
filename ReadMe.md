@@ -12,7 +12,7 @@
 7 8 9  
 
 
-![img_5.png](img_5.png)
+![img.png](images/img.png)
 Клиентский код:
 
 ```java
@@ -50,7 +50,7 @@ String TextStatement();
 
 
 Тесты:  
-![img_2.png](img_2.png)
+![img_2.png](images/img_2.png)
 
 При желании можно запустить подготовленный jar файл.
-![img_3.png](img_3.png)
+![img_3.png](images/img_3.png)
