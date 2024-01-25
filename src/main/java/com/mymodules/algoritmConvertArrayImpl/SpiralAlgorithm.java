@@ -21,71 +21,77 @@ public final class SpiralAlgorithm extends AlgorithmGenerateArray {
 
     @Override
     public int[][] generateArray() {
-        while (_storage.get_total()+1 > _totalIncrement) {
-            if (!writeDigitToRightInSingleRow(_storage.getArrayForOperation())) break;
-            if (!writeDigitToDownInSingleColumn(_storage.getArrayForOperation())) break;
-            if (!writeDigitToLeftInSingleRow(_storage.getArrayForOperation())) break;
-            if (!writeDigitToUpInSingleColumn(_storage.getArrayForOperation())) break;
+        while (canWrite()) {
+            if (!writeDigitToRightInSingleRow(_storage.getRealArray())) break;
+            if (!writeDigitToDownInSingleColumn(_storage.getRealArray())) break;
+            if (!writeDigitToLeftInSingleRow(_storage.getRealArray())) break;
+            if (!writeDigitToUpInSingleColumn(_storage.getRealArray())) break;
         }
-        return _storage.getArray();
+        return _storage.getDeepCopyArray();
     }
 
     private boolean writeDigitToRightInSingleRow(int[][] arrS) {
         for (int i = _cursorColumn; i < _storage.getColumn(); i++) {
-            if (!writeRow(arrS, i)) break;
+            if (writeRow(arrS, i)) break;
         }
-        _cursorColumn = _cursorTemp;
+        refreshCursorColumns();
         _cursorRows++;
-        return _storage.getSumElement() > 0;
+        return canWrite();
     }
 
     private boolean writeDigitToLeftInSingleRow(int[][] arrS) {
         for (int i = _cursorColumn; i >= 0; i--) {
-            if (!writeRow(arrS, i)) break;
+            if (writeRow(arrS, i)) break;
         }
-        _cursorColumn = _cursorTemp;
+        refreshCursorColumns();
         _cursorRows--;
-        return _storage.getSumElement() > 0;
+        return canWrite();
     }
-
-
 
     private boolean writeDigitToUpInSingleColumn(int[][] arrS) {
         for (int j = _cursorRows; j >= 0; j--) {
-            if (!writeColumn(arrS, j)) break;
+            if (writeColumn(arrS, j)) break;
         }
-        _cursorRows = _cursorTemp;
+        refreshCursorRows();
         _cursorColumn++;
-        return _storage.getSumElement() > 0;
+        return canWrite();
     }
-
 
     private boolean writeDigitToDownInSingleColumn(int[][] arrS) {
         for (int j = _cursorRows; j < _storage.getRows(); j++) {
-            if (!writeColumn(arrS, j)) break;
+            if (writeColumn(arrS, j)) break;
         }
-        _cursorRows = _cursorTemp;
+        refreshCursorRows();
         _cursorColumn--;
-        return _storage.getSumElement() > 0;
+        return canWrite();
     }
-
 
     private boolean writeRow(int[][] inputArr, int j) {
         if (inputArr[_cursorRows][j] == 0) {
             inputArr[_cursorRows][j] = _totalIncrement++;
             _cursorTemp = j;
-            _storage.reduceByOne();
-            return true;
-        } else return false;
+            return false;
+        } else return true;
     }
 
     private boolean writeColumn(int[][] inputArr, int i) {
         if (inputArr[i][_cursorColumn] == 0) {
             inputArr[i][_cursorColumn] = _totalIncrement++;
             _cursorTemp = i;
-            _storage.reduceByOne();
-            return true;
-        } else return false;
+            return false;
+        } else return true;
+    }
+
+    private boolean canWrite(){
+        return _storage.getTotalElements() >= _totalIncrement;
+    }
+
+    private void refreshCursorRows(){
+        _cursorRows = _cursorTemp;
+    }
+
+    private void refreshCursorColumns(){
+        _cursorColumn = _cursorTemp;
     }
 
 }

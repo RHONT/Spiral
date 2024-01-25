@@ -17,7 +17,7 @@ public abstract class AlgorithmGenerateArray {
     public abstract int[][] generateArray();
 
     public int[][] getArray(){
-        return _storage.getArray();
+        return _storage.getDeepCopyArray();
     }
 
     public void createStorage(int rows, int columns){
