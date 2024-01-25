@@ -12,7 +12,7 @@
 7 8 9  
 
 
-![img_4.png](img_4.png)
+![img_5.png](img_5.png)
 Клиентский код:
 
 ```java
