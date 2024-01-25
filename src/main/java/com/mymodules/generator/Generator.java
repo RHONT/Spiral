@@ -51,8 +51,8 @@ public final class Generator implements IGenerator {
     @Override
     public void selectAlgorithmFromEnum(AlgorithmsEnum algorithm) {
         if (_algorithm!=null) {
-            int tempRows = _algorithm.getArray().length;
-            int tempColumns = _algorithm.getArray()[0].length;
+            int tempRows = _algorithm.getDeepCopyArray().length;
+            int tempColumns = _algorithm.getDeepCopyArray()[0].length;
             _algorithm=algorithm.getInstance();
             _algorithm.createStorage(tempRows, tempColumns);
             _doCalculate =true;
@@ -66,7 +66,7 @@ public final class Generator implements IGenerator {
             _algorithm.generateArray();
             _doCalculate = false;
         }
-        return _algorithm.getArray();
+        return _algorithm.getDeepCopyArray();
     }
 
     @Override
